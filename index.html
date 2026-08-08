@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f3efe7" />
+  <title>Ten Days in Istanbul</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">10-DAY TURKISH FIELD GUIDE</p>
+      <h1>Ten Days in Istanbul</h1>
+      <p class="subtitle">Learn the Turkish attached to things you actually need to do.</p>
+    </div>
+    <div class="topbar-actions">
+      <label class="toggle"><input id="translationsToggle" type="checkbox" checked><span>English</span></label>
+      <label class="toggle"><input id="learnedToggle" type="checkbox" checked><span>Show learned</span></label>
+    </div>
+  </header>
+
+  <main>
+    <aside class="control-stack">
+      <section class="panel controls">
+        <div class="control-head">
+          <h2>Missions</h2>
+          <button id="showAll" class="text-button" type="button">Show all</button>
+        </div>
+        <p class="filter-help">Pick what you're about to do. Phrase lists stay deliberately small and practical.</p>
+        <div id="missionFilters" class="mission-list"></div>
+      </section>
+
+      <section class="panel controls">
+        <label class="search-field" for="search">
+          <span>Search Turkish, English, or a tag</span>
+          <input id="search" type="search" placeholder="metro, price, tamir…" autocomplete="off" />
+        </label>
+      </section>
+
+      <section class="panel controls progress-panel">
+        <div class="control-head"><h2>Trip progress</h2><strong id="progressText">0 / 0</strong></div>
+        <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        <button id="resetProgress" class="text-button danger" type="button">Reset learned phrases</button>
+      </section>
+
+      <section class="panel controls tip-panel">
+        <h2>Fast pattern</h2>
+        <p><strong>… nerede?</strong> = where is …?</p>
+        <p><strong>… nasıl giderim?</strong> = how do I get to …?</p>
+        <p><strong>… alabilir miyim?</strong> = can I get …?</p>
+        <p><strong>Ne kadar?</strong> = how much?</p>
+      </section>
+    </aside>
+
+    <section class="study-area">
+      <div class="study-toolbar">
+        <div>
+          <p id="summary" class="summary"></p>
+          <p id="missionGoal" class="goal"></p>
+        </div>
+      </div>
+
+      <div id="emptyState" class="empty" hidden>No phrases match this view.</div>
+      <div id="phraseGrid" class="phrase-grid"></div>
+
+      <section id="vocabSection" class="panel vocab-panel">
+        <div class="control-head"><h2>Vocabulary goals</h2><span id="vocabCount" class="badge"></span></div>
+        <div id="vocabGrid" class="vocab-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Built for one very specific Istanbul trip.</span>
+    <span aria-hidden="true">·</span>
+    <a href="https://github.com/aeirya/ten-days-in-istanbul">GitHub</a>
+  </footer>
+
+  <template id="phraseTemplate">
+    <article class="phrase-card">
+      <div class="phrase-head">
+        <div class="badges"></div>
+        <label class="learned-control"><input type="checkbox"><span>learned</span></label>
+      </div>
+      <p class="turkish"></p>
+      <p class="english"></p>
+      <div class="phrase-footer"></div>
+    </article>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
