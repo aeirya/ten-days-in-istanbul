@@ -4,6 +4,12 @@ A tiny, mission-based Turkish survival panel for a short stay in Istanbul.
 
 Built from the layout ideas of `esponyol-inator`, but organized around real tasks rather than a general language curriculum.
 
+## Live site
+
+GitHub Pages: https://aeirya.github.io/ten-days-in-istanbul/
+
+Deployments run from `.github/workflows/pages.yml` on pushes to `master`.
+
 ## MVP missions
 
 - Get home from the airport
