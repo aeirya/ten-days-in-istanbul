@@ -26,14 +26,16 @@ jobs:
           test -s index.html
           test -s app.js
           test -s styles.css
+          test -s basics.css
           python3 -m json.tool config/missions.json >/dev/null
+          python3 -m json.tool config/basics.json >/dev/null
 
       - name: Stage site
         run: |
           set -Eeuo pipefail
           mkdir -p _site/config
-          cp index.html app.js styles.css .nojekyll _site/
-          cp config/missions.json _site/config/
+          cp index.html app.js styles.css basics.css .nojekyll _site/
+          cp config/missions.json config/basics.json _site/config/
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
