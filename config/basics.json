@@ -1,0 +1,100 @@
+{
+  "groups": [
+    {
+      "id": "questions",
+      "icon": "❓",
+      "title": "Question words",
+      "items": [
+        ["ne", "what"],
+        ["nasıl", "how"],
+        ["nerede", "where"],
+        ["nereye", "where to"],
+        ["nereden", "where from"],
+        ["ne zaman", "when"],
+        ["kim", "who"],
+        ["neden / niye", "why"],
+        ["hangi", "which"],
+        ["kaç", "how many / what number"],
+        ["ne kadar", "how much / how long" ]
+      ]
+    },
+    {
+      "id": "essentials",
+      "icon": "⚡",
+      "title": "Tiny essentials",
+      "items": [
+        ["evet", "yes"],
+        ["hayır", "no"],
+        ["var", "there is / available"],
+        ["yok", "there isn't / unavailable"],
+        ["bu", "this"],
+        ["şu", "that / that one"],
+        ["o", "that / he / she / it"],
+        ["burada", "here"],
+        ["orada", "there"],
+        ["lütfen", "please"],
+        ["tamam", "okay"],
+        ["belki", "maybe"],
+        ["çok", "very / much / many"],
+        ["az", "little / few" ]
+      ]
+    },
+    {
+      "id": "time-directions",
+      "icon": "🧭",
+      "title": "Time & directions",
+      "items": [
+        ["şimdi", "now"],
+        ["bugün", "today"],
+        ["yarın", "tomorrow"],
+        ["dün", "yesterday"],
+        ["sabah", "morning"],
+        ["akşam", "evening"],
+        ["sağ", "right"],
+        ["sol", "left"],
+        ["düz", "straight"],
+        ["yakın", "near"],
+        ["uzak", "far"],
+        ["önce", "before / first"],
+        ["sonra", "after / then" ]
+      ]
+    },
+    {
+      "id": "numbers",
+      "icon": "🔢",
+      "title": "Numbers",
+      "items": [
+        ["sıfır", "0"],
+        ["bir", "1"],
+        ["iki", "2"],
+        ["üç", "3"],
+        ["dört", "4"],
+        ["beş", "5"],
+        ["altı", "6"],
+        ["yedi", "7"],
+        ["sekiz", "8"],
+        ["dokuz", "9"],
+        ["on", "10"],
+        ["on bir", "11"],
+        ["on iki", "12"],
+        ["on üç", "13"],
+        ["on dört", "14"],
+        ["on beş", "15"],
+        ["on altı", "16"],
+        ["on yedi", "17"],
+        ["on sekiz", "18"],
+        ["on dokuz", "19"],
+        ["yirmi", "20"],
+        ["otuz", "30"],
+        ["kırk", "40"],
+        ["elli", "50"],
+        ["altmış", "60"],
+        ["yetmiş", "70"],
+        ["seksen", "80"],
+        ["doksan", "90"],
+        ["yüz", "100"],
+        ["bin", "1,000" ]
+      ]
+    }
+  ]
+}
