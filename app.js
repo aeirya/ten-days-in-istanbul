@@ -1,5 +1,6 @@
 const state = {
   data: null,
+  basics: null,
   activeMission: null,
   learned: new Set(JSON.parse(localStorage.getItem('istanbul.learned') || '[]')),
   showTranslations: true,
@@ -14,6 +15,9 @@ const els = {
   vocabGrid: $('#vocabGrid'),
   vocabSection: $('#vocabSection'),
   vocabCount: $('#vocabCount'),
+  basicsSection: $('#basicsSection'),
+  basicsGroups: $('#basicsGroups'),
+  basicsCount: $('#basicsCount'),
   summary: $('#summary'),
   missionGoal: $('#missionGoal'),
   emptyState: $('#emptyState'),
@@ -46,6 +50,10 @@ function selectedMissions() {
   return state.data.missions.filter(mission => mission.id === state.activeMission);
 }
 
+function normalizedSearch() {
+  return state.search.toLocaleLowerCase('tr');
+}
+
 function matchesSearch(mission, phrase) {
   if (!state.search) return true;
   const haystack = [
@@ -56,7 +64,15 @@ function matchesSearch(mission, phrase) {
     phrase.kind,
     ...(phrase.tags || [])
   ].join(' ').toLocaleLowerCase('tr');
-  return haystack.includes(state.search.toLocaleLowerCase('tr'));
+  return haystack.includes(normalizedSearch());
+}
+
+function matchesBasicSearch(group, item) {
+  if (!state.search) return true;
+  return [group.title, ...item]
+    .join(' ')
+    .toLocaleLowerCase('tr')
+    .includes(normalizedSearch());
 }
 
 function renderMissionFilters() {
@@ -75,6 +91,51 @@ function renderMissionFilters() {
     });
     els.missionFilters.append(button);
   });
+}
+
+function renderBasics() {
+  els.basicsGroups.replaceChildren();
+  let visibleCount = 0;
+
+  state.basics.groups.forEach(group => {
+    const visibleItems = group.items.filter(item => matchesBasicSearch(group, item));
+    if (!visibleItems.length) return;
+    visibleCount += visibleItems.length;
+
+    const section = document.createElement('section');
+    section.className = 'basics-group';
+
+    const heading = document.createElement('h3');
+    heading.textContent = `${group.icon} ${group.title}`;
+    section.append(heading);
+
+    const grid = document.createElement('div');
+    grid.className = 'basics-grid';
+
+    visibleItems.forEach(([tr, en]) => {
+      const item = document.createElement('div');
+      item.className = 'basic-item';
+
+      const turkish = document.createElement('strong');
+      turkish.textContent = tr;
+      item.append(turkish);
+
+      const english = document.createElement('span');
+      english.className = 'basic-english';
+      english.textContent = en;
+      english.hidden = !state.showTranslations;
+      item.append(english);
+
+      grid.append(item);
+    });
+
+    section.append(grid);
+    els.basicsGroups.append(section);
+  });
+
+  const total = state.basics.groups.reduce((sum, group) => sum + group.items.length, 0);
+  els.basicsCount.textContent = state.search ? `${visibleCount} / ${total}` : `${total} words`;
+  els.basicsSection.hidden = visibleCount === 0;
 }
 
 function renderPhrases() {
@@ -154,7 +215,16 @@ function renderVocabulary() {
   [...seen.entries()].forEach(([tr, en]) => {
     const item = document.createElement('div');
     item.className = 'vocab-item';
-    item.innerHTML = `<strong>${tr}</strong><span>${en}</span>`;
+
+    const turkish = document.createElement('strong');
+    turkish.textContent = tr;
+    item.append(turkish);
+
+    const english = document.createElement('span');
+    english.textContent = en;
+    english.hidden = !state.showTranslations;
+    item.append(english);
+
     els.vocabGrid.append(item);
   });
   els.vocabCount.textContent = `${seen.size} words`;
@@ -172,6 +242,7 @@ function renderProgress() {
 
 function render() {
   renderMissionFilters();
+  renderBasics();
   renderPhrases();
   renderVocabulary();
   renderProgress();
@@ -184,12 +255,15 @@ els.showAll.addEventListener('click', () => {
 
 els.search.addEventListener('input', event => {
   state.search = event.target.value.trim();
+  renderBasics();
   renderPhrases();
 });
 
 els.translationsToggle.addEventListener('change', event => {
   state.showTranslations = event.target.checked;
+  renderBasics();
   renderPhrases();
+  renderVocabulary();
 });
 
 els.learnedToggle.addEventListener('change', event => {
@@ -204,15 +278,22 @@ els.resetProgress.addEventListener('click', () => {
   render();
 });
 
+async function loadJson(path) {
+  const response = await fetch(path);
+  if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+  return response.json();
+}
+
 async function init() {
   try {
-    const response = await fetch('config/missions.json');
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    state.data = await response.json();
+    [state.data, state.basics] = await Promise.all([
+      loadJson('config/missions.json'),
+      loadJson('config/basics.json')
+    ]);
     render();
   } catch (error) {
     els.emptyState.hidden = false;
-    els.emptyState.textContent = `Could not load mission data: ${error.message}. Serve the repository through a local HTTP server instead of opening index.html directly.`;
+    els.emptyState.textContent = `Could not load study data: ${error.message}. Serve the repository through a local HTTP server instead of opening index.html directly.`;
     console.error(error);
   }
 }
