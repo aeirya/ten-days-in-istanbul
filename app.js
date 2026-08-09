@@ -5,6 +5,7 @@ const state = {
   learned: new Set(JSON.parse(localStorage.getItem('istanbul.learned') || '[]')),
   showTranslations: true,
   showLearned: true,
+  visualMode: localStorage.getItem('istanbul.visualMode') === 'true',
   search: ''
 };
 
@@ -24,6 +25,7 @@ const els = {
   search: $('#search'),
   showAll: $('#showAll'),
   translationsToggle: $('#translationsToggle'),
+  visualToggle: $('#visualToggle'),
   learnedToggle: $('#learnedToggle'),
   progressText: $('#progressText'),
   progressBar: $('#progressBar'),
@@ -56,23 +58,66 @@ function normalizedSearch() {
 
 function matchesSearch(mission, phrase) {
   if (!state.search) return true;
-  const haystack = [
-    mission.title,
-    mission.goal,
-    phrase.tr,
-    phrase.en,
-    phrase.kind,
-    ...(phrase.tags || [])
-  ].join(' ').toLocaleLowerCase('tr');
+  const haystack = [mission.title, mission.goal, phrase.tr, phrase.en, phrase.kind, ...(phrase.tags || [])]
+    .join(' ')
+    .toLocaleLowerCase('tr');
   return haystack.includes(normalizedSearch());
 }
 
 function matchesBasicSearch(group, item) {
   if (!state.search) return true;
-  return [group.title, ...item]
-    .join(' ')
-    .toLocaleLowerCase('tr')
-    .includes(normalizedSearch());
+  return [group.title, ...item].join(' ').toLocaleLowerCase('tr').includes(normalizedSearch());
+}
+
+function importantRanges(text, vocabulary, language) {
+  const locale = language === 'tr' ? 'tr' : 'en';
+  const lowered = text.toLocaleLowerCase(locale);
+  const candidates = [];
+
+  vocabulary.forEach(([tr, en], pairIndex) => {
+    const term = language === 'tr' ? tr : en;
+    if (!term || term.length < 2) return;
+    const needle = term.toLocaleLowerCase(locale);
+    let start = 0;
+    while ((start = lowered.indexOf(needle, start)) !== -1) {
+      candidates.push({ start, end: start + needle.length, pairIndex, length: needle.length });
+      start += needle.length;
+    }
+  });
+
+  candidates.sort((a, b) => b.length - a.length || a.start - b.start);
+  const chosen = [];
+  candidates.forEach(candidate => {
+    if (!chosen.some(range => candidate.start < range.end && candidate.end > range.start)) {
+      chosen.push(candidate);
+    }
+  });
+  return chosen.sort((a, b) => a.start - b.start);
+}
+
+function renderPhraseText(element, text, vocabulary, language) {
+  element.replaceChildren();
+  if (!state.visualMode) {
+    element.textContent = text;
+    return;
+  }
+
+  const ranges = importantRanges(text, vocabulary, language);
+  if (!ranges.length) {
+    element.textContent = text;
+    return;
+  }
+
+  let cursor = 0;
+  ranges.forEach(({ start, end, pairIndex }) => {
+    if (start > cursor) element.append(document.createTextNode(text.slice(cursor, start)));
+    const mark = document.createElement('mark');
+    mark.className = `visual-word visual-word-${pairIndex % 6}`;
+    mark.textContent = text.slice(start, end);
+    element.append(mark);
+    cursor = end;
+  });
+  if (cursor < text.length) element.append(document.createTextNode(text.slice(cursor)));
 }
 
 function renderMissionFilters() {
@@ -104,28 +149,23 @@ function renderBasics() {
 
     const section = document.createElement('section');
     section.className = 'basics-group';
-
     const heading = document.createElement('h3');
     heading.textContent = `${group.icon} ${group.title}`;
     section.append(heading);
 
     const grid = document.createElement('div');
     grid.className = 'basics-grid';
-
     visibleItems.forEach(([tr, en]) => {
       const item = document.createElement('div');
       item.className = 'basic-item';
-
       const turkish = document.createElement('strong');
       turkish.textContent = tr;
       item.append(turkish);
-
       const english = document.createElement('span');
       english.className = 'basic-english';
       english.textContent = en;
       english.hidden = !state.showTranslations;
       item.append(english);
-
       grid.append(item);
     });
 
@@ -154,6 +194,7 @@ function renderPhrases() {
   visible.forEach(({ mission, phrase, key, learned }) => {
     const node = els.template.content.firstElementChild.cloneNode(true);
     node.classList.toggle('learned', learned);
+    node.classList.toggle('visual-mode', state.visualMode);
 
     const badges = node.querySelector('.badges');
     const missionBadge = document.createElement('span');
@@ -166,9 +207,9 @@ function renderPhrases() {
     kindBadge.textContent = phrase.kind;
     badges.append(kindBadge);
 
-    node.querySelector('.turkish').textContent = phrase.tr;
+    renderPhraseText(node.querySelector('.turkish'), phrase.tr, mission.vocabulary || [], 'tr');
     const english = node.querySelector('.english');
-    english.textContent = phrase.en;
+    renderPhraseText(english, phrase.en, mission.vocabulary || [], 'en');
     english.hidden = !state.showTranslations;
 
     const checkbox = node.querySelector('.learned-control input');
@@ -215,16 +256,13 @@ function renderVocabulary() {
   [...seen.entries()].forEach(([tr, en]) => {
     const item = document.createElement('div');
     item.className = 'vocab-item';
-
     const turkish = document.createElement('strong');
     turkish.textContent = tr;
     item.append(turkish);
-
     const english = document.createElement('span');
     english.textContent = en;
     english.hidden = !state.showTranslations;
     item.append(english);
-
     els.vocabGrid.append(item);
   });
   els.vocabCount.textContent = `${seen.size} words`;
@@ -264,6 +302,13 @@ els.translationsToggle.addEventListener('change', event => {
   renderBasics();
   renderPhrases();
   renderVocabulary();
+});
+
+els.visualToggle.checked = state.visualMode;
+els.visualToggle.addEventListener('change', event => {
+  state.visualMode = event.target.checked;
+  localStorage.setItem('istanbul.visualMode', String(state.visualMode));
+  renderPhrases();
 });
 
 els.learnedToggle.addEventListener('change', event => {
