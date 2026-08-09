@@ -184,3 +184,136 @@ main {
   .phrase-grid { grid-template-columns: 1fr; }
   .mission-list { grid-template-columns: 1fr; }
 }
+
+/* iPhone / mobile Safari ergonomics */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+button {
+  touch-action: manipulation;
+}
+
+button,
+input,
+label {
+  -webkit-tap-highlight-color: rgba(178, 58, 42, .12);
+}
+
+.toggle,
+.mission-button,
+.text-button,
+.learned-control,
+.site-footer a {
+  min-height: 44px;
+}
+
+.toggle input,
+.learned-control input {
+  width: 18px;
+  height: 18px;
+}
+
+.search-field input {
+  min-height: 44px;
+  font-size: 16px;
+}
+
+.phrase-card,
+.vocab-item {
+  overflow-wrap: anywhere;
+}
+
+.topbar {
+  padding-top: calc(2rem + env(safe-area-inset-top));
+  padding-right: max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-right));
+  padding-left: max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-left));
+}
+
+main {
+  padding-right: max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-right));
+  padding-bottom: calc(3rem + env(safe-area-inset-bottom));
+  padding-left: max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-left));
+}
+
+.site-footer {
+  padding-right: max(1rem, env(safe-area-inset-right));
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+  padding-left: max(1rem, env(safe-area-inset-left));
+}
+
+@media (hover: none) {
+  .mission-button:hover {
+    border-color: var(--line);
+  }
+
+  .mission-button.active:hover {
+    border-color: var(--accent);
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    gap: .85rem;
+    padding-top: calc(1rem + env(safe-area-inset-top));
+    padding-bottom: 1rem;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .toggle {
+    flex: 1 1 0;
+    justify-content: center;
+  }
+
+  main {
+    gap: .85rem;
+  }
+
+  .panel,
+  .phrase-card {
+    border-radius: 16px;
+  }
+
+  .controls,
+  .phrase-card,
+  .vocab-panel {
+    padding: .9rem;
+  }
+
+  .study-toolbar {
+    min-height: 2.75rem;
+  }
+
+  .phrase-grid {
+    gap: .8rem;
+  }
+
+  .phrase-head {
+    flex-wrap: wrap;
+  }
+
+  .learned-control {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .topbar-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .toggle {
+    width: 100%;
+  }
+}
