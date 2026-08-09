@@ -1,113 +1,33 @@
 {
   "missions": [
     {
-      "id": "airport-home",
-      "icon": "🚇",
-      "title": "Get home from the airport",
-      "goal": "Follow metro signs, ask for the right direction, handle transfers, and get from IST toward home.",
-      "priority": "first",
+      "id": "airport-home", "icon": "🚇", "title": "Get home from the airport", "goal": "Follow metro signs, ask for the right direction, handle transfers, and get from IST toward home.", "priority": "first",
       "phrases": [
-        {"tr":"Metro nerede?","en":"Where is the metro?","kind":"question","tags":["metro","directions"]},
-        {"tr":"M11 hattı nerede?","en":"Where is the M11 line?","kind":"question","tags":["metro","airport"]},
-        {"tr":"Buradan metroya nasıl giderim?","en":"How do I get to the metro from here?","kind":"question","tags":["directions"]},
-        {"tr":"Bu tren hangi yöne gidiyor?","en":"Which direction is this train going?","kind":"question","tags":["metro"]},
-        {"tr":"Burada aktarma yapmam gerekiyor mu?","en":"Do I need to transfer here?","kind":"question","tags":["metro","transfer"]},
-        {"tr":"Bu durakta inmem gerekiyor mu?","en":"Do I need to get off at this stop?","kind":"question","tags":["metro","stop"]},
-        {"tr":"Bu adres buraya yakın mı?","en":"Is this address near here?","kind":"question","tags":["home","directions"]},
-        {"tr":"Bu adrese nasıl giderim?","en":"How do I get to this address?","kind":"question","tags":["home","directions"]},
-        {"tr":"İstanbulkart nereden alabilirim?","en":"Where can I get an Istanbulkart?","kind":"question","tags":["payment","transport"]},
-        {"tr":"Teşekkür ederim.","en":"Thank you.","kind":"politeness","tags":["essential"]}
-      ],
-      "vocabulary": [
-        ["havalimanı","airport"],["metro","metro"],["hat","line"],["durak","stop"],["aktarma","transfer"],["çıkış","exit"],["giriş","entrance"],["adres","address"],["yakın","near"],["uzak","far"]
-      ]
+        {"tr":"Metro nerede?","en":"Where is the metro?","kind":"question","tags":["metro","directions"]},{"tr":"M11 hattı nerede?","en":"Where is the M11 line?","kind":"question","tags":["metro","airport"]},{"tr":"Buradan metroya nasıl giderim?","en":"How do I get to the metro from here?","kind":"question","tags":["directions"]},{"tr":"Bu tren hangi yöne gidiyor?","en":"Which direction is this train going?","kind":"question","tags":["metro"]},{"tr":"Burada aktarma yapmam gerekiyor mu?","en":"Do I need to transfer here?","kind":"question","tags":["metro","transfer"]},{"tr":"Bu durakta inmem gerekiyor mu?","en":"Do I need to get off at this stop?","kind":"question","tags":["metro","stop"]},{"tr":"Bu adres buraya yakın mı?","en":"Is this address near here?","kind":"question","tags":["home","directions"]},{"tr":"Bu adrese nasıl giderim?","en":"How do I get to this address?","kind":"question","tags":["home","directions"]},{"tr":"İstanbulkart nereden alabilirim?","en":"Where can I get an Istanbulkart?","kind":"question","tags":["payment","transport"]},{"tr":"Teşekkür ederim.","en":"Thank you.","kind":"politeness","tags":["essential"]}],
+      "vocabulary": [["havalimanı","airport"],["metro","metro"],["hat","line"],["durak","stop"],["aktarma","transfer"],["çıkış","exit"],["giriş","entrance"],["adres","address"],["yakın","near"],["uzak","far"]]
     },
     {
-      "id": "groceries",
-      "icon": "🛒",
-      "title": "Buy groceries",
-      "goal": "Find basic items, understand quantities, ask prices, and pay without drama.",
-      "priority": "first",
-      "phrases": [
-        {"tr":"Bu ne kadar?","en":"How much is this?","kind":"question","tags":["price"]},
-        {"tr":"Bundan bir tane alabilir miyim?","en":"Can I have one of these?","kind":"request","tags":["quantity"]},
-        {"tr":"Bir kilo lütfen.","en":"One kilo, please.","kind":"request","tags":["quantity"]},
-        {"tr":"Yarım kilo lütfen.","en":"Half a kilo, please.","kind":"request","tags":["quantity"]},
-        {"tr":"Poşet alabilir miyim?","en":"Can I get a bag?","kind":"request","tags":["checkout"]},
-        {"tr":"Kartla ödeyebilir miyim?","en":"Can I pay by card?","kind":"question","tags":["payment"]},
-        {"tr":"Nakit mi, kart mı?","en":"Cash or card?","kind":"understand","tags":["payment"]},
-        {"tr":"Fiş alabilir miyim?","en":"Can I get the receipt?","kind":"request","tags":["checkout"]},
-        {"tr":"Başka bir şey yok, teşekkürler.","en":"Nothing else, thank you.","kind":"response","tags":["checkout"]}
-      ],
-      "vocabulary": [
-        ["su","water"],["ekmek","bread"],["süt","milk"],["yoğurt","yogurt"],["yumurta","egg"],["peynir","cheese"],["meyve","fruit"],["sebze","vegetable"],["poşet","bag"],["fiş","receipt"],["nakit","cash"],["kart","card"]
-      ]
+      "id":"groceries","icon":"🛒","title":"Buy groceries","goal":"Find basic items, understand quantities, ask prices, and pay without drama.","priority":"first",
+      "phrases":[{"tr":"Bu ne kadar?","en":"How much is this?","kind":"question","tags":["price"]},{"tr":"Bundan bir tane alabilir miyim?","en":"Can I have one of these?","kind":"request","tags":["quantity"]},{"tr":"Bir kilo lütfen.","en":"One kilo, please.","kind":"request","tags":["quantity"]},{"tr":"Yarım kilo lütfen.","en":"Half a kilo, please.","kind":"request","tags":["quantity"]},{"tr":"Poşet alabilir miyim?","en":"Can I get a bag?","kind":"request","tags":["checkout"]},{"tr":"Kartla ödeyebilir miyim?","en":"Can I pay by card?","kind":"question","tags":["payment"]},{"tr":"Nakit mi, kart mı?","en":"Cash or card?","kind":"understand","tags":["payment"]},{"tr":"Fiş alabilir miyim?","en":"Can I get the receipt?","kind":"request","tags":["checkout"]},{"tr":"Başka bir şey yok, teşekkürler.","en":"Nothing else, thank you.","kind":"response","tags":["checkout"]}],
+      "vocabulary":[["su","water"],["ekmek","bread"],["süt","milk"],["yoğurt","yogurt"],["yumurta","egg"],["peynir","cheese"],["meyve","fruit"],["sebze","vegetable"],["poşet","bag"],["fiş","receipt"],["nakit","cash"],["kart","card"]]
     },
     {
-      "id": "food",
-      "icon": "🍲",
-      "title": "Eat everything",
-      "goal": "Order food, ask what something is, handle preferences, and collect foods worth trying.",
-      "priority": "fun",
-      "phrases": [
-        {"tr":"Bu nedir?","en":"What is this?","kind":"question","tags":["menu"]},
-        {"tr":"Ne önerirsiniz?","en":"What do you recommend?","kind":"question","tags":["menu"]},
-        {"tr":"Bunu denemek istiyorum.","en":"I want to try this.","kind":"request","tags":["menu"]},
-        {"tr":"Bir tane bundan lütfen.","en":"One of these, please.","kind":"request","tags":["ordering"]},
-        {"tr":"Acılı mı?","en":"Is it spicy?","kind":"question","tags":["food"]},
-        {"tr":"Çok acılı olmasın lütfen.","en":"Not too spicy, please.","kind":"request","tags":["food"]},
-        {"tr":"Çok güzel!","en":"It's very good!","kind":"reaction","tags":["food"]},
-        {"tr":"Hesabı alabilir miyiz?","en":"Can we get the bill?","kind":"request","tags":["restaurant"]},
-        {"tr":"Paket olabilir mi?","en":"Can it be takeaway / packed?","kind":"question","tags":["restaurant"]}
-      ],
-      "vocabulary": [
-        ["kahvaltı","breakfast"],["çorba","soup"],["pilav","rice/pilaf"],["köfte","meatballs"],["döner","döner"],["balık","fish"],["tatlı","dessert"],["çay","tea"],["kahve","coffee"],["hesap","bill"]
-      ]
+      "id":"food","icon":"🍲","title":"Eat everything","goal":"Order food, ask what something is, handle preferences, and collect foods worth trying.","priority":"fun",
+      "phrases":[{"tr":"Bu nedir?","en":"What is this?","kind":"question","tags":["menu"]},{"tr":"Ne önerirsiniz?","en":"What do you recommend?","kind":"question","tags":["menu"]},{"tr":"Bunu denemek istiyorum.","en":"I want to try this.","kind":"request","tags":["menu"]},{"tr":"Bir tane bundan lütfen.","en":"One of these, please.","kind":"request","tags":["ordering"]},{"tr":"Acılı mı?","en":"Is it spicy?","kind":"question","tags":["food"]},{"tr":"Çok acılı olmasın lütfen.","en":"Not too spicy, please.","kind":"request","tags":["food"]},{"tr":"Çok güzel!","en":"It's very good!","kind":"reaction","tags":["food"]},{"tr":"Hesabı alabilir miyiz?","en":"Can we get the bill?","kind":"request","tags":["restaurant"]},{"tr":"Paket olabilir mi?","en":"Can it be takeaway / packed?","kind":"question","tags":["restaurant"]}],
+      "vocabulary":[["kahvaltı","breakfast"],["çorba","soup"],["pilav","rice/pilaf"],["köfte","meatballs"],["döner","döner"],["balık","fish"],["tatlı","dessert"],["çay","tea"],["kahve","coffee"],["hesap","bill"]]
     },
     {
-      "id": "navigate",
-      "icon": "🧭",
-      "title": "Navigate Istanbul",
-      "goal": "Ask where things are, understand simple direction words, and recover when lost.",
-      "priority": "first",
-      "phrases": [
-        {"tr":"Affedersiniz, burası neresi?","en":"Excuse me, where is this place / where am I?","kind":"question","tags":["lost"]},
-        {"tr":"Buraya nasıl gidebilirim?","en":"How can I get here?","kind":"question","tags":["directions"]},
-        {"tr":"Doğru yolda mıyım?","en":"Am I going the right way?","kind":"question","tags":["directions"]},
-        {"tr":"Sağa mı, sola mı?","en":"Right or left?","kind":"question","tags":["directions"]},
-        {"tr":"Düz mü gideceğim?","en":"Should I go straight?","kind":"question","tags":["directions"]},
-        {"tr":"Ne kadar uzak?","en":"How far is it?","kind":"question","tags":["distance"]},
-        {"tr":"Yürüyerek kaç dakika?","en":"How many minutes on foot?","kind":"question","tags":["distance"]},
-        {"tr":"Haritada gösterebilir misiniz?","en":"Can you show me on the map?","kind":"request","tags":["map"]},
-        {"tr":"Kayboldum.","en":"I'm lost.","kind":"statement","tags":["lost"]}
-      ],
-      "vocabulary": [
-        ["sağ","right"],["sol","left"],["düz","straight"],["yakın","near"],["uzak","far"],["yürüyerek","on foot"],["istasyon","station"],["durak","stop"],["sokak","street"],["cadde","avenue/main street"]
-      ]
+      "id":"navigate","icon":"🧭","title":"Navigate Istanbul","goal":"Ask where things are, understand simple direction words, and recover when lost.","priority":"first",
+      "phrases":[{"tr":"Affedersiniz, burası neresi?","en":"Excuse me, where is this place / where am I?","kind":"question","tags":["lost"]},{"tr":"Buraya nasıl gidebilirim?","en":"How can I get here?","kind":"question","tags":["directions"]},{"tr":"Doğru yolda mıyım?","en":"Am I going the right way?","kind":"question","tags":["directions"]},{"tr":"Sağa mı, sola mı?","en":"Right or left?","kind":"question","tags":["directions"]},{"tr":"Düz mü gideceğim?","en":"Should I go straight?","kind":"question","tags":["directions"]},{"tr":"Ne kadar uzak?","en":"How far is it?","kind":"question","tags":["distance"]},{"tr":"Yürüyerek kaç dakika?","en":"How many minutes on foot?","kind":"question","tags":["distance"]},{"tr":"Haritada gösterebilir misiniz?","en":"Can you show me on the map?","kind":"request","tags":["map"]},{"tr":"Kayboldum.","en":"I'm lost.","kind":"statement","tags":["lost"]}],
+      "vocabulary":[["sağ","right"],["sol","left"],["düz","straight"],["yakın","near"],["uzak","far"],["yürüyerek","on foot"],["istasyon","station"],["durak","stop"],["sokak","street"],["cadde","avenue/main street"]]
     },
     {
-      "id": "mac-repair",
-      "icon": "💻",
-      "title": "Get the MacBook repaired",
-      "goal": "Find a trustworthy repair shop, explain the fault, ask about diagnosis, price, parts, and turnaround.",
-      "priority": "todo",
-      "phrases": [
-        {"tr":"MacBook Air'imi tamir ettirmek istiyorum.","en":"I want to have my MacBook Air repaired.","kind":"statement","tags":["repair"]},
-        {"tr":"Bilgisayarımda bir sorun var.","en":"There is a problem with my computer.","kind":"statement","tags":["repair"]},
-        {"tr":"Soruna bakabilir misiniz?","en":"Can you take a look at the problem?","kind":"request","tags":["diagnosis"]},
-        {"tr":"Önce kontrol edip fiyat söyleyebilir misiniz?","en":"Can you check it first and tell me the price?","kind":"request","tags":["diagnosis","price"]},
-        {"tr":"Tamiri ne kadar tutar?","en":"How much would the repair cost?","kind":"question","tags":["price"]},
-        {"tr":"Ne kadar sürer?","en":"How long will it take?","kind":"question","tags":["time"]},
-        {"tr":"Bugün hazır olur mu?","en":"Will it be ready today?","kind":"question","tags":["time"]},
-        {"tr":"Parça değişmesi gerekiyor mu?","en":"Does a part need to be replaced?","kind":"question","tags":["parts"]},
-        {"tr":"Orijinal parça mı kullanıyorsunuz?","en":"Do you use an original part?","kind":"question","tags":["parts"]},
-        {"tr":"Verilerim silinir mi?","en":"Will my data be erased?","kind":"question","tags":["data"]},
-        {"tr":"Tamirden önce beni arayabilir misiniz?","en":"Can you call me before doing the repair?","kind":"request","tags":["approval"]},
-        {"tr":"Garanti veriyor musunuz?","en":"Do you provide a warranty?","kind":"question","tags":["warranty"]}
+      "id":"mac-repair","icon":"💻","title":"Get the MacBook repaired","goal":"Find a trustworthy repair shop, explain the fault, ask about diagnosis, price, parts, and turnaround.","priority":"todo",
+      "phrases":[
+        {"tr":"MacBook Air'imi tamir ettirmek istiyorum.","en":"I want to have my MacBook Air repaired.","kind":"statement","tags":["repair"]},{"tr":"Bilgisayarımda bir sorun var.","en":"There is a problem with my computer.","kind":"statement","tags":["repair"]},{"tr":"Soruna bakabilir misiniz?","en":"Can you take a look at the problem?","kind":"request","tags":["diagnosis"]},{"tr":"Önce kontrol edip fiyat söyleyebilir misiniz?","en":"Can you check it first and tell me the price?","kind":"request","tags":["diagnosis","price"]},{"tr":"Tamiri ne kadar tutar?","en":"How much would the repair cost?","kind":"question","tags":["price"]},{"tr":"Ne kadar sürer?","en":"How long will it take?","kind":"question","tags":["time"]},{"tr":"Bugün hazır olur mu?","en":"Will it be ready today?","kind":"question","tags":["time"]},{"tr":"Parça değişmesi gerekiyor mu?","en":"Does a part need to be replaced?","kind":"question","tags":["parts"]},{"tr":"Orijinal parça mı kullanıyorsunuz?","en":"Do you use an original part?","kind":"question","tags":["parts"]},{"tr":"Verilerim silinir mi?","en":"Will my data be erased?","kind":"question","tags":["data"]},{"tr":"Tamirden önce beni arayabilir misiniz?","en":"Can you call me before doing the repair?","kind":"request","tags":["approval"]},{"tr":"Garanti veriyor musunuz?","en":"Do you provide a warranty?","kind":"question","tags":["warranty"]},
+        {"tr":"Bazı tuşlar bazen çalışmıyor.","en":"Some keys sometimes don't work.","kind":"statement","tags":["keyboard","diagnosis","practice-group"]},{"tr":"Sağ ok tuşu hiç çalışmıyor.","en":"The right-arrow key doesn't work at all.","kind":"statement","tags":["keyboard","diagnosis","practice-group"]},{"tr":"Tamir mümkün mü?","en":"Is repair possible?","kind":"question","tags":["repair","practice-group"]},{"tr":"Klavye değişimi gerekiyor mu?","en":"Does the keyboard need replacement?","kind":"question","tags":["keyboard","parts","practice-group"]},{"tr":"Ekran kırık.","en":"The screen is broken.","kind":"statement","tags":["screen","diagnosis","practice-group"]},{"tr":"Ekran değişimi ne kadar?","en":"How much is screen replacement?","kind":"question","tags":["screen","price","practice-group"]},{"tr":"Orijinal çıkma var mı?","en":"Do you have a genuine used/salvaged part?","kind":"question","tags":["parts","used","practice-group"]},{"tr":"İkinci el orijinal MagSafe 2 adaptör var mı?","en":"Do you have a second-hand genuine MagSafe 2 adapter?","kind":"question","tags":["charger","used","practice-group"]},{"tr":"Seksen beş watt.","en":"Eighty-five watts.","kind":"statement","tags":["charger","practice-group"]},{"tr":"Merhaba. Üç şey soracağım.","en":"Hello. I have three things to ask about.","kind":"statement","tags":["practice-group","script"]},{"tr":"Bu MacBook'ta bazı tuşlar bazen çalışmıyor. Sağ ok tuşu hiç çalışmıyor.","en":"On this MacBook, some keys sometimes don't work. The right-arrow key doesn't work at all.","kind":"statement","tags":["keyboard","practice-group","script"]},{"tr":"Bu MacBook Air'in ekranı kırık. Ekran değişimi ne kadar? Orijinal çıkma var mı?","en":"This MacBook Air's screen is broken. How much is a screen replacement? Do you have a genuine used/salvaged one?","kind":"question","tags":["screen","price","practice-group","script"]},{"tr":"Bir de ikinci el orijinal 85 watt MagSafe 2 adaptör var mı?","en":"Also, do you have a second-hand genuine 85W MagSafe 2 adapter?","kind":"question","tags":["charger","used","practice-group","script"]}
       ],
-      "vocabulary": [
-        ["tamir","repair"],["sorun","problem"],["fiyat","price"],["parça","part"],["ekran","screen"],["pil","battery"],["şarj","charging"],["klavye","keyboard"],["veri","data"],["garanti","warranty"]
-      ]
+      "vocabulary":[["tamir","repair"],["sorun","problem"],["fiyat","price"],["parça","part"],["ekran","screen"],["pil","battery"],["şarj","charging"],["klavye","keyboard"],["tuş","key"],["çalışmıyor","doesn't work"],["bazen","sometimes"],["sağ ok tuşu","right-arrow key"],["ekran değişimi","screen replacement"],["orijinal","genuine/original"],["çıkma","used/salvaged original part"],["muadil","compatible/aftermarket equivalent"],["ikinci el","second-hand"],["adaptör","adapter"],["şarj aleti","charger"],["veri","data"],["garanti","warranty"]]
     }
   ]
 }
