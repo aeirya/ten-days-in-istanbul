@@ -1,0 +1,190 @@
+.guide-topbar {
+  align-items: center;
+}
+
+.guide-main {
+  display: block;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.guide-column {
+  display: grid;
+  gap: 1rem;
+}
+
+.guide-card {
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.guide-card h2 {
+  margin: .2rem 0 .7rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+}
+
+.guide-card p {
+  line-height: 1.6;
+}
+
+.guide-card p:last-child {
+  margin-bottom: 0;
+}
+
+.section-kicker {
+  margin: 0 0 .3rem;
+  color: var(--accent);
+  font-size: .7rem;
+  font-weight: 850;
+  letter-spacing: .11em;
+}
+
+.guide-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.guide-note {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+.callout-card {
+  border-color: #cda59e;
+  background: linear-gradient(135deg, var(--panel), var(--accent-soft));
+}
+
+.vowel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.vowel-card {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: .8rem;
+  padding: .9rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.vowel-card.featured-vowel {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.vowel-letter {
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.vowel-card p {
+  margin: .3rem 0 .45rem;
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+.vowel-card span {
+  color: var(--green);
+  font-size: .76rem;
+  font-weight: 750;
+}
+
+.tip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .7rem;
+  margin-top: .9rem;
+}
+
+.mini-tip {
+  padding: .8rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.mini-tip strong,
+.mini-tip span {
+  display: block;
+}
+
+.mini-tip span {
+  margin-top: .25rem;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.4;
+}
+
+.sound-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .55rem;
+  margin-top: .9rem;
+}
+
+.sound-list > div {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: .5rem;
+  align-items: baseline;
+  padding: .65rem .75rem;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #fff;
+}
+
+.sound-list strong {
+  font-size: 1.15rem;
+}
+
+.sound-list span {
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.source-card {
+  font-size: .9rem;
+}
+
+.sources {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.sources a {
+  color: var(--green);
+}
+
+.nav-link {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 750;
+}
+
+@media (max-width: 700px) {
+  .vowel-grid,
+  .tip-grid,
+  .sound-list {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-section-head {
+    display: block;
+  }
+
+  .guide-section-head .badge {
+    margin-top: .25rem;
+  }
+}
