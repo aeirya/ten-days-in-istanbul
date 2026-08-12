@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -27,8 +27,14 @@ jobs:
           test -s app.js
           test -s styles.css
           test -s basics.css
+          test -s expressions.html
+          test -s expressions.css
           test -s pronunciation.html
           test -s pronunciation.css
+          test -s quiz.html
+          test -s quiz.js
+          test -s grammar.html
+          test -s study.css
           python3 -m json.tool config/missions.json >/dev/null
           python3 -m json.tool config/basics.json >/dev/null
           python3 -m json.tool config/visual-mappings.json >/dev/null

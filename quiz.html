@@ -13,7 +13,7 @@
     <div>
       <p class="eyebrow">CHECK WHAT STUCK</p>
       <h1>Quick quizzes</h1>
-      <p class="subtitle">Multiple choice practice for the words and expressions in this Istanbul guide.</p>
+      <p class="subtitle">Multiple choice practice for words, expressions, and real missing-word contexts.</p>
     </div>
     <div class="topbar-actions">
       <a class="toggle study-nav-link" href="index.html">← Phrases</a>
@@ -41,15 +41,22 @@
             <select id="quizLength">
               <option value="10">10</option>
               <option value="20">20</option>
+              <option value="40">40</option>
               <option value="all">All available</option>
             </select>
           </label>
           <button id="startQuiz" class="primary-button" type="button">Start new quiz</button>
         </div>
+        <div class="shortcut-strip" aria-label="Keyboard shortcuts">
+          <span><kbd>1</kbd>–<kbd>4</kbd> or <kbd>A</kbd>–<kbd>D</kbd> answer</span>
+          <span><kbd>Enter</kbd> / <kbd>N</kbd> next</span>
+          <span><kbd>R</kbd> restart</span>
+          <span><kbd>S</kbd> start</span>
+        </div>
       </section>
 
       <section id="quizCard" class="panel study-card" hidden>
-        <div class="quiz-status">
+        <div class="quiz-status" aria-live="polite">
           <span id="quizProgressText">Question 1 / 10</span>
           <span id="quizScoreText">Score 0</span>
         </div>
@@ -57,10 +64,11 @@
         <span id="quizKind" class="quiz-kind">word</span>
         <h2 id="quizQuestion" class="quiz-question"></h2>
         <div id="quizOptions" class="quiz-options"></div>
-        <div id="quizFeedback" class="quiz-feedback" hidden></div>
+        <div id="quizFeedback" class="quiz-feedback" aria-live="polite" hidden></div>
         <div class="quiz-actions">
           <button id="nextQuestion" class="primary-button secondary" type="button" hidden>Next</button>
         </div>
+        <p class="keyboard-reminder"><kbd>1</kbd>–<kbd>4</kbd> / <kbd>A</kbd>–<kbd>D</kbd> to answer · <kbd>Enter</kbd> or <kbd>N</kbd> for next</p>
       </section>
 
       <section id="quizResult" class="panel study-card" hidden>
@@ -72,6 +80,7 @@
         <div class="quiz-actions">
           <button id="retryQuiz" class="primary-button" type="button">Try another quiz</button>
         </div>
+        <p class="keyboard-reminder"><kbd>Enter</kbd> or <kbd>R</kbd> to start another randomized quiz</p>
       </section>
     </section>
   </main>

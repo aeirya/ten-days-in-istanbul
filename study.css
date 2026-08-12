@@ -79,6 +79,33 @@
   color: var(--accent);
 }
 
+.shortcut-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem 1rem;
+  margin-top: 1rem;
+  padding-top: .85rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .76rem;
+  font-weight: 700;
+}
+
+kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.55rem;
+  min-height: 1.45rem;
+  padding: .05rem .3rem;
+  border: 1px solid #cfc7b9;
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: #fff;
+  color: var(--ink);
+  font: 750 .72rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  box-shadow: 0 1px 0 rgba(0,0,0,.04);
+}
+
 .quiz-status {
   display: flex;
   justify-content: space-between;
@@ -131,12 +158,31 @@
 }
 
 .option-button {
-  padding: .8rem .9rem;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: .65rem;
+  align-items: center;
+  padding: .72rem .9rem .72rem .7rem;
   text-align: left;
 }
 
-.option-button:hover:not(:disabled) {
+.option-key {
+  display: grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #f4f1ea;
+  color: var(--muted);
+  font: 850 .76rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.option-button:hover:not(:disabled),
+.option-button:focus-visible:not(:disabled) {
   border-color: var(--accent);
+  outline: 3px solid rgba(178,58,42,.11);
+  outline-offset: 1px;
 }
 
 .option-button.correct {
@@ -144,9 +190,21 @@
   background: var(--green-soft);
 }
 
+.option-button.correct .option-key {
+  border-color: var(--green);
+  background: #fff;
+  color: var(--green);
+}
+
 .option-button.wrong {
   border-color: var(--accent);
   background: var(--accent-soft);
+}
+
+.option-button.wrong .option-key {
+  border-color: var(--accent);
+  background: #fff;
+  color: var(--accent);
 }
 
 .option-button:disabled {
@@ -173,6 +231,13 @@
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
+}
+
+.keyboard-reminder {
+  margin: .8rem 0 0;
+  color: var(--muted);
+  font-size: .72rem;
+  text-align: right;
 }
 
 .quiz-result-score {
@@ -316,5 +381,9 @@
   .quiz-control,
   .quiz-controls .primary-button {
     width: 100%;
+  }
+
+  .keyboard-reminder {
+    text-align: left;
   }
 }
