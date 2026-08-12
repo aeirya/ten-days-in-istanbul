@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f3efe7" />
+  <title>Quiz · Ten Days in Istanbul</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="study.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">CHECK WHAT STUCK</p>
+      <h1>Quick quizzes</h1>
+      <p class="subtitle">Multiple choice practice for the words and expressions in this Istanbul guide.</p>
+    </div>
+    <div class="topbar-actions">
+      <a class="toggle study-nav-link" href="index.html">← Phrases</a>
+      <a class="toggle study-nav-link" href="expressions.html">💬 Expressions</a>
+      <a class="toggle study-nav-link" href="grammar.html">🧩 Grammar</a>
+    </div>
+  </header>
+
+  <main class="study-page-main">
+    <section class="study-page-column">
+      <section class="panel study-card">
+        <p class="section-kicker">NEW QUIZ</p>
+        <h2>Choose what to test</h2>
+        <div class="quiz-controls">
+          <label class="quiz-control">
+            <span>Material</span>
+            <select id="quizCategory">
+              <option value="mixed">Words + expressions</option>
+              <option value="word">Words only</option>
+              <option value="expression">Expressions only</option>
+            </select>
+          </label>
+          <label class="quiz-control">
+            <span>Questions</span>
+            <select id="quizLength">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="all">All available</option>
+            </select>
+          </label>
+          <button id="startQuiz" class="primary-button" type="button">Start new quiz</button>
+        </div>
+      </section>
+
+      <section id="quizCard" class="panel study-card" hidden>
+        <div class="quiz-status">
+          <span id="quizProgressText">Question 1 / 10</span>
+          <span id="quizScoreText">Score 0</span>
+        </div>
+        <div class="quiz-progress-track"><div id="quizProgressBar" class="quiz-progress-bar"></div></div>
+        <span id="quizKind" class="quiz-kind">word</span>
+        <h2 id="quizQuestion" class="quiz-question"></h2>
+        <div id="quizOptions" class="quiz-options"></div>
+        <div id="quizFeedback" class="quiz-feedback" hidden></div>
+        <div class="quiz-actions">
+          <button id="nextQuestion" class="primary-button secondary" type="button" hidden>Next</button>
+        </div>
+      </section>
+
+      <section id="quizResult" class="panel study-card" hidden>
+        <p class="section-kicker">RESULT</p>
+        <h2 id="resultTitle">Quiz complete</h2>
+        <div id="resultScore" class="quiz-result-score">0 / 10</div>
+        <p id="resultMessage" class="study-note"></p>
+        <div id="missedList" class="missed-list"></div>
+        <div class="quiz-actions">
+          <button id="retryQuiz" class="primary-button" type="button">Try another quiz</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="index.html">Phrase guide</a><span aria-hidden="true">·</span>
+    <a href="expressions.html">Expressions</a><span aria-hidden="true">·</span>
+    <a href="grammar.html">Grammar</a><span aria-hidden="true">·</span>
+    <a href="pronunciation.html">Pronunciation</a>
+  </footer>
+
+  <script src="quiz.js" defer></script>
+</body>
+</html>
