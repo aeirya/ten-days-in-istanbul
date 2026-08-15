@@ -1,0 +1,83 @@
+.jump-nav {
+  display: flex;
+  gap: .5rem;
+  overflow-x: auto;
+  padding: 0 clamp(1rem, 4vw, 4rem) 1rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.jump-nav::-webkit-scrollbar { display: none; }
+.jump-nav a {
+  flex: 0 0 auto;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .55rem .8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: .82rem;
+  font-weight: 800;
+  box-shadow: var(--shadow);
+}
+
+.mobile-tabbar { display: none; }
+
+#missions,
+#basicsSection,
+#phrases,
+#vocabSection { scroll-margin-top: 1rem; }
+
+@media (max-width: 620px) {
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+
+  .jump-nav {
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-left: max(1rem, env(safe-area-inset-left));
+  }
+
+  .mobile-tabbar {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding: .35rem max(.35rem, env(safe-area-inset-right)) calc(.35rem + env(safe-area-inset-bottom)) max(.35rem, env(safe-area-inset-left));
+    border-top: 1px solid var(--line);
+    background: rgba(255, 253, 248, .96);
+    box-shadow: 0 -8px 28px rgba(38, 42, 51, .12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .mobile-tabbar a {
+    min-width: 0;
+    min-height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .12rem;
+    border-radius: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .64rem;
+    font-weight: 800;
+    line-height: 1.05;
+    -webkit-tap-highlight-color: rgba(178, 58, 42, .12);
+  }
+
+  .mobile-tabbar a[aria-current="page"] {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  .mobile-tabbar .tab-icon { font-size: 1.22rem; line-height: 1; }
+
+  .site-footer { padding-bottom: 1rem; }
+}
