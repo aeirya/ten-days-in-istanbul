@@ -5,6 +5,7 @@
   padding: 0 clamp(1rem, 4vw, 4rem) 1rem;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
 }
 .jump-nav::-webkit-scrollbar { display: none; }
 .jump-nav a {
@@ -22,21 +23,38 @@
   font-size: .82rem;
   font-weight: 800;
   box-shadow: var(--shadow);
+  scroll-snap-align: start;
 }
 
 .mobile-tabbar { display: none; }
 
 #missions,
+#searchPanel,
+#progressPanel,
+#patternPanel,
 #basicsSection,
 #phrases,
-#vocabSection { scroll-margin-top: 1rem; }
+#vocabSection { scroll-margin-top: 5rem; }
 
 @media (max-width: 620px) {
   body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 
   .jump-nav {
-    padding-right: max(1rem, env(safe-area-inset-right));
-    padding-left: max(1rem, env(safe-area-inset-left));
+    position: sticky;
+    z-index: 900;
+    top: 0;
+    padding: .5rem max(1rem, env(safe-area-inset-right)) .6rem max(1rem, env(safe-area-inset-left));
+    background: rgba(243, 239, 231, .94);
+    border-bottom: 1px solid rgba(222, 215, 202, .8);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .jump-nav a {
+    min-height: 40px;
+    padding: .48rem .72rem;
+    font-size: .78rem;
+    box-shadow: none;
   }
 
   .mobile-tabbar {

@@ -29,6 +29,9 @@
 
   <nav class="jump-nav" aria-label="Jump within phrase guide">
     <a href="#missions">🎯 Missions</a>
+    <a href="#searchPanel">🔎 Search</a>
+    <a href="#progressPanel">📈 Progress</a>
+    <a href="#patternPanel">⚡ Patterns</a>
     <a href="#basicsSection">🧱 Basics</a>
     <a href="#phrases">🗣️ Phrases</a>
     <a href="#vocabSection">🧠 Vocab</a>
@@ -46,20 +49,20 @@
         <div id="missionFilters" class="mission-list"></div>
       </section>
 
-      <section class="panel controls">
+      <section class="panel controls" id="searchPanel">
         <label class="search-field" for="search">
           <span>Search Turkish, English, or a tag</span>
           <input id="search" type="search" placeholder="metro, price, tamir…" autocomplete="off" />
         </label>
       </section>
 
-      <section class="panel controls progress-panel">
+      <section class="panel controls progress-panel" id="progressPanel">
         <div class="control-head"><h2>Trip progress</h2><strong id="progressText">0 / 0</strong></div>
         <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
         <button id="resetProgress" class="text-button danger" type="button">Reset learned phrases</button>
       </section>
 
-      <section class="panel controls tip-panel">
+      <section class="panel controls tip-panel" id="patternPanel">
         <h2>Fast pattern</h2>
         <p><strong>… nerede?</strong> = where is …?</p>
         <p><strong>… nasıl giderim?</strong> = how do I get to …?</p>
