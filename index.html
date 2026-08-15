@@ -7,9 +7,10 @@
   <title>Ten Days in Istanbul</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="basics.css" />
+  <link rel="stylesheet" href="mobile-nav.css" />
 </head>
 <body>
-  <header class="topbar">
+  <header class="topbar" id="top">
     <div>
       <p class="eyebrow">10-DAY TURKISH FIELD GUIDE</p>
       <h1>Ten Days in Istanbul</h1>
@@ -26,8 +27,16 @@
     </div>
   </header>
 
+  <nav class="jump-nav" aria-label="Jump within phrase guide">
+    <a href="#missions">🎯 Missions</a>
+    <a href="#basicsSection">🧱 Basics</a>
+    <a href="#phrases">🗣️ Phrases</a>
+    <a href="#vocabSection">🧠 Vocab</a>
+    <a href="#top">↑ Top</a>
+  </nav>
+
   <main>
-    <aside class="control-stack">
+    <aside class="control-stack" id="missions">
       <section class="panel controls">
         <div class="control-head">
           <h2>Missions</h2>
@@ -79,6 +88,7 @@
         <div id="basicsGroups" class="basics-groups"></div>
       </section>
 
+      <div id="phrases" aria-hidden="true"></div>
       <div id="emptyState" class="empty" hidden>No phrases match this view.</div>
       <div id="phraseGrid" class="phrase-grid"></div>
 
@@ -102,6 +112,14 @@
     <span aria-hidden="true">·</span>
     <a href="https://github.com/aeirya/ten-days-in-istanbul">GitHub</a>
   </footer>
+
+  <nav class="mobile-tabbar" aria-label="Site navigation">
+    <a href="index.html" aria-current="page"><span class="tab-icon">🗣️</span><span>Phrases</span></a>
+    <a href="expressions.html"><span class="tab-icon">💬</span><span>Expressions</span></a>
+    <a href="quiz.html"><span class="tab-icon">✅</span><span>Quiz</span></a>
+    <a href="grammar.html"><span class="tab-icon">🧩</span><span>Grammar</span></a>
+    <a href="pronunciation.html"><span class="tab-icon">🔊</span><span>Sounds</span></a>
+  </nav>
 
   <template id="phraseTemplate">
     <article class="phrase-card">
