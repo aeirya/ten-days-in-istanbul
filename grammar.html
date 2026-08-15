@@ -7,24 +7,42 @@
   <title>Grammar & Inflection · Ten Days in Istanbul</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="study.css" />
+  <link rel="stylesheet" href="grammar-mobile.css" />
 </head>
 <body>
-  <header class="topbar">
+  <header class="topbar grammar-topbar" id="top">
     <div>
       <p class="eyebrow">BUILD WORDS, NOT JUST PHRASES</p>
       <h1>Grammar & inflection</h1>
       <p class="subtitle">The small set of Turkish suffix patterns that lets you understand and build much more than you memorize.</p>
     </div>
-    <div class="topbar-actions">
-      <a class="toggle study-nav-link" href="index.html">← Phrases</a>
-      <a class="toggle study-nav-link" href="quiz.html">✅ Quiz</a>
-      <a class="toggle study-nav-link" href="pronunciation.html">🔊 Pronunciation</a>
-    </div>
   </header>
 
-  <main class="study-page-main">
+  <nav class="grammar-site-nav" aria-label="Study pages">
+    <a href="index.html"><span>🗣️</span><small>Phrases</small></a>
+    <a href="expressions.html"><span>💬</span><small>Expressions</small></a>
+    <a href="quiz.html"><span>✅</span><small>Quiz</small></a>
+    <a href="grammar.html" aria-current="page"><span>🧩</span><small>Grammar</small></a>
+    <a href="pronunciation.html"><span>🔊</span><small>Sounds</small></a>
+  </nav>
+
+  <nav class="grammar-jump-nav" aria-label="Jump within grammar guide">
+    <a href="#overview">Overview</a>
+    <a href="#harmony">Harmony</a>
+    <a href="#cases">Cases</a>
+    <a href="#possession">Possession</a>
+    <a href="#changes">Sound changes</a>
+    <a href="#verbs">Verbs</a>
+    <a href="#persons">Person</a>
+    <a href="#questions">Questions</a>
+    <a href="#sentences">Sentences</a>
+    <a href="#patterns">Patterns</a>
+    <a href="#top">↑ Top</a>
+  </nav>
+
+  <main class="study-page-main grammar-main">
     <section class="study-page-column">
-      <section class="panel study-card">
+      <section class="panel study-card" id="overview">
         <p class="section-kicker">THE MAIN IDEA</p>
         <h2>Turkish builds meaning by stacking suffixes</h2>
         <p class="study-note">The stem usually stays recognizable and grammatical information gets attached to the end. Learn the order and the vowel harmony, and long words stop looking random.</p>
@@ -46,7 +64,7 @@
         </div>
       </section>
 
-      <section class="panel study-card">
+      <section class="panel study-card" id="harmony">
         <p class="section-kicker">VOWEL HARMONY</p>
         <h2>Why one suffix appears in several shapes</h2>
         <div class="grammar-grid">
@@ -64,7 +82,7 @@
         <p class="study-note">Capital <strong>A</strong> and <strong>I</strong> are common shorthand for “choose the harmonizing vowel,” not literal Turkish letters.</p>
       </section>
 
-      <section class="panel study-card">
+      <section class="panel study-card" id="cases">
         <p class="section-kicker">NOUNS + WORD INFLECTION</p>
         <h2>The cases you will actually see everywhere</h2>
         <div class="grammar-table-wrap">
@@ -83,7 +101,7 @@
         <p class="study-note"><strong>y</strong> and <strong>n</strong> often appear as buffer consonants when a suffix beginning with a vowel would otherwise collide with a vowel-final stem.</p>
       </section>
 
-      <section class="panel study-card">
+      <section class="panel study-card" id="possession">
         <p class="section-kicker">POSSESSION</p>
         <h2>“My / your / our” is usually a suffix</h2>
         <div class="grammar-table-wrap">
@@ -102,7 +120,7 @@
         <div class="formula-line">telefon + um = <strong>telefonum</strong> “my phone” · ekran + ı = <strong>ekranı</strong> “its screen”</div>
       </section>
 
-      <section class="panel study-card">
+      <section class="panel study-card" id="changes">
         <p class="section-kicker">SOUND CHANGES AT SUFFIX BOUNDARIES</p>
         <h2>The stem can change a little</h2>
         <div class="grammar-grid">
@@ -118,7 +136,7 @@
         </div>
       </section>
 
-      <section class="panel study-card">
+      <section class="panel study-card" id="verbs">
         <p class="section-kicker">VERBS</p>
         <h2>Start with the stem</h2>
         <p class="study-note">Dictionary forms end in <strong>-mak / -mek</strong>. Remove that to get the stem: <strong>gelmek → gel-</strong>, <strong>gitmek → git-</strong>, <strong>almak → al-</strong>, <strong>istemek → iste-</strong>, <strong>çalışmak → çalış-</strong>.</p>
@@ -136,7 +154,7 @@
         </div>
       </section>
 
-      <section class="panel study-card">
+      <section class="panel study-card" id="persons">
         <p class="section-kicker">PERSON ENDINGS</p>
         <h2>One verb can already tell you who did it</h2>
         <div class="grammar-table-wrap">
@@ -155,7 +173,7 @@
         <p class="study-note">Because the person is marked on the verb, Turkish often drops the pronoun. <strong>Geliyorum</strong> already means “I’m coming.”</p>
       </section>
 
-      <section class="panel study-card">
+      <section class="panel study-card" id="questions">
         <p class="section-kicker">QUESTIONS + REQUESTS</p>
         <h2>The forms you will use constantly</h2>
         <div class="grammar-grid">
@@ -178,7 +196,7 @@
         </div>
       </section>
 
-      <section class="panel study-card">
+      <section class="panel study-card" id="sentences">
         <p class="section-kicker">NOUN/ADJECTIVE SENTENCES</p>
         <h2>Turkish often needs no separate word for “is”</h2>
         <div class="grammar-grid">
@@ -201,7 +219,7 @@
         </div>
       </section>
 
-      <section class="panel study-card">
+      <section class="panel study-card" id="patterns">
         <p class="section-kicker">HIGH-VALUE PATTERNS</p>
         <h2>Read these as reusable morphology</h2>
         <div class="grammar-table-wrap">

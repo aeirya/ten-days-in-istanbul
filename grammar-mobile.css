@@ -1,0 +1,225 @@
+.grammar-site-nav,
+.grammar-jump-nav {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.grammar-site-nav {
+  display: flex;
+  gap: .45rem;
+  padding: 0 clamp(1rem, 4vw, 4rem) .8rem;
+}
+
+.grammar-site-nav a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .5rem .7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.grammar-site-nav a[aria-current="page"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.grammar-site-nav small { font-size: .76rem; }
+
+.grammar-jump-nav {
+  display: flex;
+  gap: .45rem;
+  overflow-x: auto;
+  padding: 0 clamp(1rem, 4vw, 4rem) 1rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.grammar-jump-nav::-webkit-scrollbar { display: none; }
+
+.grammar-jump-nav a {
+  flex: 0 0 auto;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  padding: .46rem .68rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: .77rem;
+  font-weight: 800;
+}
+
+#overview,
+#harmony,
+#cases,
+#possession,
+#changes,
+#verbs,
+#persons,
+#questions,
+#sentences,
+#patterns { scroll-margin-top: 4rem; }
+
+@media (max-width: 700px) {
+  .grammar-topbar {
+    gap: .45rem;
+    padding-top: calc(.85rem + env(safe-area-inset-top));
+    padding-bottom: .65rem;
+  }
+
+  .grammar-topbar .eyebrow {
+    margin-bottom: .25rem;
+    font-size: .63rem;
+  }
+
+  .grammar-topbar h1 {
+    font-size: clamp(2.05rem, 10.5vw, 2.65rem);
+    line-height: .98;
+  }
+
+  .grammar-topbar .subtitle {
+    margin-top: .5rem;
+    font-size: .92rem;
+    line-height: 1.38;
+  }
+
+  .grammar-site-nav {
+    position: sticky;
+    z-index: 950;
+    top: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+    padding: .3rem max(.3rem, env(safe-area-inset-right)) .35rem max(.3rem, env(safe-area-inset-left));
+    border-block: 1px solid rgba(222, 215, 202, .85);
+    background: rgba(255, 253, 248, .96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .grammar-site-nav a {
+    min-width: 0;
+    min-height: 46px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .08rem;
+    padding: .25rem .1rem;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    line-height: 1;
+  }
+
+  .grammar-site-nav a > span { font-size: 1.05rem; }
+  .grammar-site-nav small { max-width: 100%; overflow: hidden; font-size: .58rem; text-overflow: ellipsis; }
+
+  .grammar-jump-nav {
+    padding: .5rem max(.75rem, env(safe-area-inset-right)) .55rem max(.75rem, env(safe-area-inset-left));
+  }
+
+  .grammar-jump-nav a {
+    min-height: 36px;
+    padding: .4rem .6rem;
+    font-size: .71rem;
+  }
+
+  .grammar-main {
+    padding: .15rem max(.75rem, env(safe-area-inset-right)) calc(1.5rem + env(safe-area-inset-bottom)) max(.75rem, env(safe-area-inset-left));
+  }
+
+  .grammar-main .study-page-column { gap: .7rem; }
+  .grammar-main .study-card { padding: .82rem; border-radius: 16px; }
+  .grammar-main .study-card h2 { margin: .1rem 0 .6rem; font-size: 1.12rem; line-height: 1.2; }
+  .grammar-main .study-card h3 { margin: .08rem 0 .35rem; font-size: .92rem; line-height: 1.25; }
+  .grammar-main .section-kicker { margin-bottom: .2rem; font-size: .63rem; }
+  .grammar-main .study-note { margin: .45rem 0; font-size: .78rem; line-height: 1.42; }
+
+  .grammar-main .grammar-grid { gap: .48rem; }
+  .grammar-main .grammar-box { padding: .68rem .72rem; border-radius: 11px; }
+  .grammar-main .grammar-box p { margin-top: .25rem; font-size: .76rem; line-height: 1.38; }
+
+  .grammar-main .formula-line {
+    margin: .55rem 0;
+    padding: .58rem .66rem;
+    border-radius: 10px;
+    font-size: .77rem;
+    line-height: 1.35;
+  }
+
+  .grammar-main .example-chain {
+    gap: .24rem;
+    margin-top: .45rem;
+    font-size: .75rem;
+  }
+
+  .grammar-main .chain-part {
+    padding: .26rem .38rem;
+    border-radius: 7px;
+    font-size: .74rem;
+  }
+
+  .grammar-main .grammar-table-wrap {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  .grammar-main .grammar-table {
+    display: block;
+    min-width: 0;
+    font-size: .78rem;
+  }
+
+  .grammar-main .grammar-table thead { display: none; }
+  .grammar-main .grammar-table tbody { display: grid; gap: .42rem; }
+
+  .grammar-main .grammar-table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: .12rem .6rem;
+    padding: .62rem .68rem;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    background: #fff;
+  }
+
+  .grammar-main .grammar-table td,
+  .grammar-main .grammar-table tr:last-child td {
+    padding: 0;
+    border: 0;
+    font-size: .74rem;
+    line-height: 1.35;
+  }
+
+  .grammar-main .grammar-table td:first-child {
+    font-size: .86rem;
+    font-weight: 800;
+  }
+
+  .grammar-main .grammar-table td:nth-child(2) {
+    max-width: 11rem;
+    color: var(--gold);
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  .grammar-main .grammar-table td:nth-child(n+3) {
+    grid-column: 1 / -1;
+    color: var(--muted);
+  }
+
+  .grammar-main .suffix {
+    padding: .08rem .26rem;
+    font-size: .72rem;
+  }
+}
