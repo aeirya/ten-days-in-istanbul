@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f3efe7" />
+  <title>Sentence Analysis · Ten Days in Istanbul</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="analysis.css" />
+</head>
+<body>
+  <header class="topbar analysis-topbar" id="top">
+    <div>
+      <p class="eyebrow">READ TURKISH FROM THE INSIDE OUT</p>
+      <h1>Sentence analysis</h1>
+      <p class="subtitle">Tap through useful texts and see chunks, parts of speech, suffixes, and grammar roles at a glance.</p>
+    </div>
+    <div class="topbar-actions">
+      <a class="toggle nav-pill" href="index.html">🗣️ Phrases</a>
+      <a class="toggle nav-pill" href="grammar.html">🧩 Grammar</a>
+      <a class="toggle nav-pill" href="quiz.html">✅ Quiz</a>
+    </div>
+  </header>
+
+  <main class="analysis-main">
+    <section class="text-picker-wrap" aria-labelledby="pickerTitle">
+      <div class="picker-head">
+        <div>
+          <p class="section-kicker">TEXTS</p>
+          <h2 id="pickerTitle">Choose a sentence</h2>
+        </div>
+        <span class="swipe-hint">← swipe →</span>
+      </div>
+      <div id="textPicker" class="text-picker" role="tablist" aria-label="Sentence examples"></div>
+    </section>
+
+    <section class="panel sentence-panel">
+      <div class="sentence-meta">
+        <span id="contextBadge" class="context-badge"></span>
+        <span id="sentenceCount" class="sentence-count"></span>
+      </div>
+      <p id="turkishSentence" class="sentence-turkish"></p>
+      <p id="englishSentence" class="sentence-english"></p>
+      <p id="naturalNote" class="natural-note"></p>
+    </section>
+
+    <section class="legend" aria-label="Color legend">
+      <span><i class="swatch pos-noun"></i>Noun</span>
+      <span><i class="swatch pos-verb"></i>Verb</span>
+      <span><i class="swatch pos-adverb"></i>Adverb</span>
+      <span><i class="swatch pos-particle"></i>Particle</span>
+      <span><i class="swatch grammar-suffix"></i>Inflection / suffix</span>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <p class="section-kicker">CHUNKS</p>
+        <h2>How the sentence is built</h2>
+      </div>
+      <div id="chunkGrid" class="chunk-grid"></div>
+    </section>
+
+    <section class="panel structure-panel">
+      <div class="section-heading compact">
+        <p class="section-kicker">SENTENCE SHAPE</p>
+        <h2>Grammar map</h2>
+      </div>
+      <div id="structureLine" class="structure-line"></div>
+      <p id="structureNote" class="structure-note"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer analysis-footer">
+    <a href="index.html">Phrases</a><span>·</span>
+    <a href="expressions.html">Expressions</a><span>·</span>
+    <a href="quiz.html">Quiz</a><span>·</span>
+    <a href="grammar.html">Grammar</a><span>·</span>
+    <a href="pronunciation.html">Pronunciation</a>
+  </footer>
+
+  <script src="analysis.js" defer></script>
+</body>
+</html>
